@@ -5,5 +5,20 @@
 }
 
 .comida-container {
-  /* Estilos para el contenedor de la lista */
+  display:flex;
+}
+.ingredientes{
+  
+}
+.provincia{
+
+}
+.Carta{
+display:flex;
+}
+.categoria{
+
+}
+.titulo{
+
 }
