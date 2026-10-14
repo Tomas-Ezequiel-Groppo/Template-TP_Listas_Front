@@ -8,15 +8,42 @@
 </head>
 <body>
     <header>
+      <input type="search" id="Busqueda" placeholder="Escriba su búsqueda">Escriba su búsqueda</input>
       <select id="Provincia">
         <option value="">Todas las provincias</option>
         <option value="Buenos Aires">Buenos Aires</option>
         <option value="caba">CABA</option>
-        <option value="">Tucumán</option>
-        <option value="">San Luis</option>
-        <option value="">San Juan</option>
-        <option value="">Jujuy</option>
-        <option value="">Catamarca</option>
+        <option value="tucuman">Tucumán</option>
+        <option value="sanLuis">San Luis</option>
+        <option value="sanJuan">San Juan</option>
+        <option value="jujuy">Jujuy</option>
+        <option value="catamarca">Catamarca</option>
+        <option value="">Santiago del estero</option>
+        <option value="">Formosa</option>
+        <option value="">Corrientes</option>
+        <option value="">Salta</option>
+        <option value="">Misiones</option>
+        <option value="">Santa Fé</option>
+        <option value="">Chaco</option>
+        <option value="">Chubut</option>
+        <option value="">Río Negro</option>
+        <option value="">Córdoba</option>
+        <option value="">Tierra del Fuego</option>
+        <option value="">Santa Cruz</option>
+        <option value="">Mendoza</option>
+        <option value="">La Pampa</option>
+        <option value="">La Rioja</option>
+        <option value="">Neuqén</option>
+      </select>
+      <select id="Categoria">
+        <option value="">TODAS</option>
+        <option value="Parrilla">PARRILA</option>
+        <option value="Horno">HORNO</option>
+        <option value="tucuman">Tucumán</option>
+        <option value="sanLuis">San Luis</option>
+        <option value="sanJuan">San Juan</option>
+        <option value="jujuy">Jujuy</option>
+        <option value="catamarca">Catamarca</option>
         <option value="">Santiago del estero</option>
         <option value="">Formosa</option>
         <option value="">Corrientes</option>
@@ -41,17 +68,6 @@
     </main>     
 
     <section class="addFood">
-      <form id="FormAgregarComidas">
-        <label for="titulo"></label>
-        <input type="text" name="titulo" placeholder="Escriba el nombre de su comida">
-        <label for="provincia"></label>
-        <input type="text" name="provincia" placeholder="Escriba la provincia de su comida">
-        <label for="categoria"></label>
-        <input type="text" name="categoria" placeholder="Escriba la categoria de su comida">
-        <label for="ingredientes"></label>
-        <input type ="text" name="ingredientes" placeholder="Escriba los ingredientes de sus comidas">
-        <button type="submit">AGREGAR COMIDA</button>
-      </form>
     </section>
 
     <script type="module" src="./main.js"></script>
