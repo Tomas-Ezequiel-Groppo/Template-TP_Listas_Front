@@ -1,13 +1,13 @@
 /*
     Cargar comidas en memoria desde el JSON
 */
-fetch('./data/comidas.json')          // Ruta al archivo JSON
+fetch('./data/comidas-extended.json')          // Ruta al archivo JSON
   .then(response => response.json())  // Convertir la respuesta en JSON
   .then(data => {                     // Aquí tienes acceso al JSON en formato de objeto JS
     console.log('Comidas cargadas desde JSON:');
     console.log(data);    
     comidas = data;
-    mostrarComidas();                // Asignar el JSON a la variable comidas
+    mostrarComidas(comidas);                // Asignar el JSON a la variable comidas
   })
   .catch(error => {                   // Manejo de errores al leer el archivo JSON
     console.error('Error al leer el archivo JSON:', error);
@@ -17,11 +17,11 @@ let comidas = [];
 
 const container = document.getElementById('comidaContainer');
 
-function mostrarComidas(){
+function mostrarComidas(lista){
   
   container.innerHTML = ""
 
-  comidas.forEach(comida => {
+  lista.forEach(comida => {
     container.innerHTML += `
     <article class="Carta">
     <h2 class="titulo">${comida.nombre}</h2>
@@ -34,27 +34,29 @@ function mostrarComidas(){
     `
   });
 }
-let form = getElementById('FormAgregarComidas')
 
-form.addEventListener("submit", () =>{
+const Provincia = document.getElementById('Provincia')
+const Categoria = document.getElementById('Categoria')
+const Busqueda = document.getElementById('Busqueda')
 
-  event.preventDefault()
-  let nuevaComida = {
-    nombre:event.target.nombre.value,
-    provincia:event.target.provincia.value,
-    categoria:event.target.categoria.value,
-    ingredientes:event.target.ingredientes.value.split(',')
-  }
+function flitrarComidas(){
+  let comidasFiltradas = comidas.filter(comida=>{
+    return comida.provincia.includes(Provincia.value)
+        && comida.categoria.includes(Categoria.value)
+  })
 
-  event.target.reset()
-})
+  console.log(comidasFiltradas)
+  mostrarComidas(comidasFiltradas)
+}
+Provincia.addEventListener("change" , flitrarComidas);
+Categoria.addEventListener("change", flitrarComidas);
 
-const filtroProvincia = document.getElementById('Provincia')
-
-filtroProvincia.addEventListener("change" ,() =>{
-  let comidasFiltradas= comidas.filter(comida =>{
-    return comida.provincia.includes(filtroProvincia.value)
+function buscarComidas(){
+  let comidasFiltradas= comidas.filter( comida=>{
+    return comida.nombre.toLowerCase().includes(Buscador.value.toLowerCase())
+    ||comida.provincia.toLowerCase().includes(Buscador.value.toLowerCase())
+    ||comida.categoria.toLowerCase().includes(Buscador.value.toLowerCase())
   })
 
   mostrarComidas(comidasFiltradas)
-})
+}
