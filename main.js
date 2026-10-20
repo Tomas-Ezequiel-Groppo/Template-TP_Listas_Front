@@ -7,7 +7,8 @@ fetch('./data/comidas-extended.json')          // Ruta al archivo JSON
     console.log('Comidas cargadas desde JSON:');
     console.log(data);    
     comidas = data;
-    mostrarComidas(comidas);                // Asignar el JSON a la variable comidas
+    mostrarComidas(comidas);
+    actualizarFiltros()               // Asignar el JSON a la variable comidas
   })
   .catch(error => {                   // Manejo de errores al leer el archivo JSON
     console.error('Error al leer el archivo JSON:', error);
@@ -50,13 +51,39 @@ function flitrarComidas(){
 }
 Provincia.addEventListener("change" , flitrarComidas);
 Categoria.addEventListener("change", flitrarComidas);
+Busqueda.addEventListener("input", buscarComidas);
 
 function buscarComidas(){
   let comidasFiltradas= comidas.filter( comida=>{
-    return comida.nombre.toLowerCase().includes(Buscador.value.toLowerCase())
-    ||comida.provincia.toLowerCase().includes(Buscador.value.toLowerCase())
-    ||comida.categoria.toLowerCase().includes(Buscador.value.toLowerCase())
+    return comida.nombre.toLowerCase().includes(Busqueda.value.toLowerCase())
+    ||comida.provincia.toLowerCase().includes(Busqueda.value.toLowerCase())
+    ||comida.categoria.toLowerCase().includes(Busqueda.value.toLowerCase())
   })
 
   mostrarComidas(comidasFiltradas)
+}
+
+function actualizarFiltros(){
+  let categorias = [];
+  comidas.forEach(comida =>{
+    if (!categorias.includes(comida.categoria)){
+      categorias.push(comida.categoria);
+    }
+  });
+
+  categorias.forEach(categoria =>{
+    Categoria.innerHTML += `<option value="${categoria}">${categoria}</option>`
+  });
+
+  let provincias = [];
+
+  comidas.forEach(comida =>{
+    if (!provincias.includes(comida.provincia)){
+      provincias.push(comida.provincia);
+    }
+  });
+
+  provincias.forEach(provincia =>{
+    Provincia.innerHTML += `<option value="${provincia}">${provincia}</option>`
+  });
 }

@@ -6,6 +6,8 @@
 
 .comida-container {
   display:flex;
+  justify-content: space-evenly;
+  flex-wrap:wrap;
 }
 .ingredientes{
   
@@ -15,6 +17,12 @@
 }
 .Carta{
 display:flex;
+height:20vh;
+aspect-ratio: 1/1;
+border:solid;
+border-radius: 0.5vw;
+border-width: 0.25vw;
+background-color: aquamarine;
 }
 .categoria{
 
