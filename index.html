@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <header>
-      <input type="search" id="Busqueda" placeholder="Escriba su búsqueda">Escriba su búsqueda</input>
-      <select id="Provincia">
+    <header class="buscadorYFiltros">
+      <input type="search" id="Busqueda" placeholder="Escriba su búsqueda" class="textoHeader"></input>
+      <select id="Provincia" class="textoHeader">
         <option value="">Todas las provincias</option>
       </select>
-      <select id="Categoria">
+      <select id="Categoria" class="textoHeader">
         <option value="">TODAS</option>
       </select>
     </header>
@@ -20,10 +20,24 @@
     <main class="comida-container" id="comidaContainer">
         <!-- Contenido Dinamico -->
     </main>     
-
-    <section class="addFood">
+    <div class="separacionTodoForm"></div>
+    <section class="formularioAgregar">
     </section>
-
+     <form id="agregarComidaForm" class="formularioAgregar">
+        <h2>Agregar Comida</h2>
+        <label for="nombre">Nombre de la comida</label>
+        <input type="text" class="textoForm" id="nombre" placeholder="Pon una comida" required>
+        <label for="provincia">¿De qué provincia es?</label>
+        <input type="text" class="textoForm" id="provincia" placeholder="Pon su provincia de origen" required>
+        <label for="categoria">¿Cuál es su categoría?</label>
+        <input type="text" class="textoForm" id="categoria" placeholder="Pon una categoría" required>
+        <label for="ingredientes">¿Cuáles son sus ingredientes (separados por comas)?</label>
+        <div class="contenedor-ingredientes">
+        <input class="textoForm" type="text" class="ingrediente" id="ingredientes" placeholder="Pon los ingredientes" required>
+        </div>
+        <button type="button" id="boton-ingredientes">Agregar ingredientes</button>
+        <button type="submit">Agregar</button>
+       </form>
     <script type="module" src="./main.js"></script>
 </body>
 </html>

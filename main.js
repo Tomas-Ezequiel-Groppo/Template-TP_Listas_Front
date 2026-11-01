@@ -29,7 +29,7 @@ function mostrarComidas(lista){
     <p class="categoria">${comida.categoria}</p>
     <h3 class = "provincia">${comida.provincia}</h3>
     <ul class="ingredientes">
-    ${comida.ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).join(``)}
+    ${comida.ingredientes.map(ingrediente => `<li class="ingredienteX">${ingrediente}</li>`).join(``)}
     </ul>
     </article>
     `
@@ -87,3 +87,36 @@ function actualizarFiltros(){
     Provincia.innerHTML += `<option value="${provincia}">${provincia}</option>`
   });
 }
+const formAgregarComida = document.getElementById("agregarComidaForm")
+
+
+formAgregarComida.addEventListener("submit", (event) => {
+  event.preventDefault() //El formulario tiene un comportamiento que no nos sirve
+
+ // alert("Comida agregada: " + event.target.nombre.value) //El evento fue disparado por el formulario
+
+ const ingredientesInputs= document.querySelectorAll(".ingrediente")
+ let ingredientes = []
+ ingredientesInputs.forEach(input => {
+  ingredientes.push(input.value)
+ })
+
+ let nuevaComida= {
+  nombre: event.target.nombre.value,
+  provincia: event.target.provincia.value,
+  categoria: event.target.categoria.value,
+  ingredientes: ingredientes
+ }
+
+ comidas.push(nuevaComida)
+
+ mostrarComidas(comidas)
+
+ ingredientesContainer.innerHTML=`
+ <input type="text" id="ingredientes" class="ingrediente" placeholder="Pon los ingredientes" required>
+ `
+
+  actualizarFiltros()
+
+ event.target.reset()
+})

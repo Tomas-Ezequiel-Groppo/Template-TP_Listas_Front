@@ -8,25 +8,72 @@
   display:flex;
   justify-content: space-evenly;
   flex-wrap:wrap;
+   background-color: grey;
+   width: 100vw;
 }
-.ingredientes{
-  
+.buscadorYFiltros{
+  height:15vh;
+  width:100vw;
+  background-color: grey;
+  display: flex;
+  justify-content: space-evenly;
 }
-.provincia{
-
+.formularioAgregar{
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.separacionTodoForm{
+  height: 1.5vh;
+  width:100vw;
+  background-color: black;
 }
 .Carta{
 display:flex;
-height:20vh;
-aspect-ratio: 1/1;
+height:30vh;
+aspect-ratio: 4/3;
 border:solid;
 border-radius: 0.5vw;
 border-width: 0.25vw;
 background-color: aquamarine;
+flex-direction: column;
+align-items: center;
 }
-.categoria{
-
+.ingredientes{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vw;
 }
-.titulo{
-
+.textoHeader{
+  background-color: lightgray;
+  color: black;
+  border:solid;
+  border-color: black;
+  border-width: 0.3vw;
+  height: 5vh;
+}
+.textoForm{
+  background-color: lightgray;
+  color: black;
+  border:solid;
+  border-color: black;
+  border-width: 0.3vw;
+  height: 3.5vh;
+}
+.ingredientes{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ingredienteX{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width:6vw;
+  background-color: aquamarine;
+  border: solid;
+  border-color: black;
+  border-width: 0.2vw;
 }
